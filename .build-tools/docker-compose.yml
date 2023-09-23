@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+  build_image-editors:
+    image: whoatemyapplepie/image-editors:0.8.0
+    build:
+      context: build_image-editors
+      args:
+        - NODE_VERSION=${NODE_VERSION}
+    volumes:
+      - ../image-editors/:/project
+    working_dir: /project
+    command: bash -c 'npm run generate'
